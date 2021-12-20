@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+:root {
+  --background-color: #0c031d;
+  --pink-color: #f87652;
+  --secondary-color: #bbbbbb;
+  --bg-color-of-lists-in-skills-section: #0c063d80;
+  --card-bg-color: #02093a;
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--background-color) !important;
+}
+
+.container,
+.home {
+  animation: transitionIn 0.75s;
+}
+
+/* Navbar Section */
+.nav_section,
+.navbar-brand {
+  font-size: 22px;
+}
+.nav_section .nav_section span {
+  color: var(--pink-color);
+}
+.nav_section .navbar-nav li {
+  margin: 0px 8px;
+}
+.nav_section .navbar-nav li a {
+  color: white !important;
+  font-size: 15px;
+}
+.nav_section .navbar-nav .nav-link::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  background-color: white;
+  position: absolute;
+  bottom: 7px;
+  transition: 0.5s;
+}
+.nav_section .navbar-nav .nav-link:hover::before {
+  content: "";
+  height: 2px;
+  width: 40px;
+  background-color: var(--pink-color);
+  position: absolute;
+  bottom: 7px;
+}
+.nav-item:hover {
+  color: #f87652;
+}
+
+/* Semester Selection */
+.sem-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink-color);
+  height: 60px;
+  margin: 0;
+  border-radius: 0px;
+}
+.btn-container:hover {
+  color: rgb(235, 239, 243);
+  background-color: slateblue;
+}
+.sem_section {
+  background-color: #02093a;
+  padding-bottom: 80px;
+  /* margin: 100px; */
+}
+.sem_section .card {
+  background: var(--card-bg-color);
+  margin: 20px;
+}
+.sem_section .card:hover {
+  animation: pulse;
+  animation-duration: 0.5s;
+}
+.sem_section .card-body .title {
+  font-size: 22px;
+  font-weight: 500;
+}
+.sem_section .card-body .date {
+  font-size: 11px;
+}
+.sem_section .card-body .txt {
+  font-size: 12px;
+  color: var(--secondary-color);
+}
+
+/* Subjects Section */
+section {
+  padding: 60px 0;
+}
+
+section .section-title {
+  text-align: center;
+  color: var(--pink-color);
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+#tabs {
+  background: var(--bg-color-of-lists-in-skills-section);
+  color: #eee;
+}
+#tabs h6.section-title {
+  color: #eee;
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #f3f3f3;
+  background-color: transparent;
+  border-color: transparent transparent #f3f3f3;
+  border-bottom: 4px solid !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+#tabs .nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  color: #eee;
+  font-size: 20px;
+}
+.card-body {
+  background-color: var(--card-bg-color);
+  display: flex;
+  justify-content: center;
+}
+
+/* Footer */
+footer {
+  background-color: #0c031d;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0 0 0;
+}
+footer a {
+  text-decoration: wavy;
+  color: #fff;
+}
+footer a:hover {
+  color: #25d8ec;
+}
+footer ul {
+  margin-top: 10px;
+  text-align: center;
+}
+footer li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* home section */
+
+.home {
+  min-height: 100vh;
+  /* background: #212534; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+}
+.home-card {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.7em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: cursive;
+}
+
+.home-card:hover {
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
+}
+.home-card:hover:before,
+.card:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+.home-card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.home-card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+/* content links */
+.content-links {
+  text-decoration: none;
+  color: white;
+}
+.content-links:hover {
+  color: green;
+  text-decoration: none;
+}
+@media(max-width: 763px) and (min-width:500px){
+  .home-computer{
+    font-size: 1em;
+  }
+
+}
